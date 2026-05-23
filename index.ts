@@ -13,7 +13,7 @@ import { MessageSearchChatBarIcon, SearchIcon } from "./MessageSearchChatBarIcon
 export default definePlugin({
     name: "Global Search",
     description: "Search through messages in all DM channels and group DMs globally",
-    authors: [{ name: "Atom1cByte", id: 0n }],
+    authors: [{ name: "Atom1cByte", id: 0n }, { name: "dash", id: 548007774840160260n }],
     chatBarButton: {
         icon: SearchIcon,
         render: MessageSearchChatBarIcon
