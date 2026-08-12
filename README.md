@@ -1,3 +1,5 @@
+
+
 # 🌐 Global Search
 
 [![GitHub Repo stars](https://img.shields.io/github/stars/Atom1cByte/Global-Search?style=social)](https://github.com/Atom1cByte/Global-Search/stargazers)
@@ -33,5 +35,5 @@ Blog post on that soon.
 
 ---
 
-##  LICENSE
-because apparently that's a thing you're supposed to have. just check the source for it. 
+## LICENSE
+Licensed under **GPL-3.0-or-later**, as specified in the source files.
