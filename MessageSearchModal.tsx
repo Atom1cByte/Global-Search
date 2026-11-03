@@ -390,7 +390,7 @@ function MessageSearchModal(props: MessageSearchModalProps) {
                         <Forms.FormTitle tag="h2" style={{ margin: 0 }}>
                             Global Search
                         </Forms.FormTitle>
-                        <Forms.FormText style={{ margin: 0, fontStyle: "italic", fontSize: "0.9em", color: "var(white)" }}>
+                        <Forms.FormText style={{ margin: 0, fontStyle: "italic", fontSize: "0.9em", color: "var(--text-normal)" }}>
                             by Jaisal (AtomicByte)
                         </Forms.FormText>
                     </div>
@@ -453,7 +453,7 @@ function MessageSearchModal(props: MessageSearchModalProps) {
                 </div>
 
                 {searchScope === "allGuilds" && allGuildProgress && (
-                    <Forms.FormText style={{ marginBottom: "16px", color: "var(white)" }}>
+                    <Forms.FormText style={{ marginBottom: "16px", color: "var(--text-normal)" }}>
                         {allGuildProgress}
                     </Forms.FormText>
                 )}
