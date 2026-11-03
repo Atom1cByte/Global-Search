@@ -103,6 +103,12 @@ The plugin registers a chat-bar button that opens a modal. Searches are sent thr
 
 ---
 
+## 💬 Support
+
+Questions, bugs, or feature ideas? Join the community on **[Discord](https://discord.gg/x8ZqX673uS)**.
+
+---
+
 ## LICENSE
 
 Because apparently that's a thing you're supposed to have. Just check the source for it (GPL-3.0-or-later per file headers).
