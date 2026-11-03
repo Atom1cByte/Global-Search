@@ -112,4 +112,4 @@ Questions, bugs, or feature ideas? Join the community on **[Discord](https://dis
 
 ## LICENSE
 
-Licensed under **GPL-3.0-or-later**, as specified in the source files.
+Licensed under **[GPL-3.0-or-later](LICENSE)**. Source file headers use the same license.
