@@ -22,16 +22,87 @@ Star this repo if you want me to get it added to the official vencord client.
 
 ## 📥 Installation
 
-1. Download this project
-2. Place it in your Vencord `plugins/` folder.  
-3. Reload vesktop or discord to activate.
+Global Search is a **custom user plugin**. You need a [Vencord build from source](https://docs.vencord.dev/installing/) (Discord desktop, Vesktop, or browser). The official installer alone does not load arbitrary plugins from this repo.
 
---- 
+### Prerequisites
 
-## 🤔 How does it work?
-Blog post on that soon. 
+- [Git](https://git-scm.com/downloads)
+- [Node.js](https://nodejs.org/) (LTS recommended)
+- [pnpm](https://pnpm.io/) (`npm install -g pnpm`)
+
+If you have not built Vencord before, follow the [Installing from source](https://docs.vencord.dev/installing/) guide through `pnpm install`, `pnpm build`, and `pnpm inject` (close Discord first).
+
+### Add the plugin
+
+1. Open your Vencord folder and go to `src/userplugins`. Create `userplugins` if it does not exist ([custom plugins docs](https://docs.vencord.dev/installing/custom-plugins/)).
+2. Install this repo into that folder as a plugin directory (folder must contain `index.ts`):
+
+   **Windows (PowerShell)**
+
+   ```powershell
+   cd C:\path\to\Vencord\src\userplugins
+   git clone https://github.com/Atom1cByte/Global-Search.git globalSearch
+   ```
+
+   **macOS / Linux**
+
+   ```bash
+   cd ~/Vencord/src/userplugins
+   git clone https://github.com/Atom1cByte/Global-Search.git globalSearch
+   ```
+
+   You can use any folder name; `globalSearch` matches the plugin files in this repo.
+
+3. Rebuild Vencord from the Vencord root:
+
+   ```powershell
+   cd C:\path\to\Vencord
+   pnpm build
+   ```
+
+   For a browser build, use `pnpm buildWeb` instead.
+
+4. **Discord desktop:** run `pnpm inject` again if you use a fresh `dist` output, then restart Discord.
+
+   **Vesktop:** point **Vencord Location** at your Vencord `dist` folder (Vesktop settings → Developer settings), then fully restart Vesktop.
+
+5. In Discord, open **User Settings → Vencord → Plugins**, find **Global Search**, enable it, and restart the client when prompted.
+
+### Updating
+
+```powershell
+cd C:\path\to\Vencord\src\userplugins\globalSearch
+git pull
+cd C:\path\to\Vencord
+pnpm build
+```
+
+Restart Discord or Vesktop after each update.
 
 ---
 
-##  LICENSE
-because apparently that's a thing you're supposed to have. just check the source for it. 
+## 📖 How to use
+
+1. Open any **main chat** (the plugin adds a control to the chat bar, not thread or side panels).
+2. Click the **magnifying glass** button (**Global Search** tooltip) next to the message input.
+3. Type your query and click **Search**. Results are sorted by newest first (up to 25 per page).
+4. Click a result to jump to that message in its DM or group DM channel.
+5. If more results exist, use **Load More** at the bottom of the modal.
+
+**Tips**
+
+- Search uses Discord’s `/users/@me/messages/search/tabs` API—the same family of endpoints as Discord’s own message search, scoped to DMs and group DMs you can access.
+- Empty queries are ignored; wait for **Searching...** to finish before starting another search unless you are loading the next page.
+- If jump-to-message fails after navigation, check the browser or DevTools console for `[MessageSearch]` logs (Discord sometimes needs a moment after switching channels).
+
+---
+
+## 🤔 How does it work?
+
+The plugin registers a chat-bar button that opens a modal. Searches are sent through Vencord’s `RestAPI` to Discord’s message search tabs endpoint; pagination uses the cursor returned in the response. Blog post on that soon.
+
+---
+
+## LICENSE
+
+Because apparently that's a thing you're supposed to have. Just check the source for it (GPL-3.0-or-later per file headers).
